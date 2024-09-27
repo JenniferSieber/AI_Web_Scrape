@@ -5,7 +5,6 @@ from selenium.common.exceptions import WebDriverException, TimeoutException, NoS
 from bs4 import BeautifulSoup
 import time
 
-
 #         driver.quit()
 def scrape_website(website):
     print("Launch chrome browser...")
@@ -42,7 +41,6 @@ def extract_body_content(html_content):
         return str(body_content)
     return ""
 
-
 def clean_body_content(body_content):
     soup = BeautifulSoup(body_content, "html.parser")
     for script_or_style in soup(["script", "style"]):
@@ -52,7 +50,6 @@ def clean_body_content(body_content):
         line.strip() for line in cleaned_content.splitlines() if line.strip()
     )
     return cleaned_content
-
 
 def split_dom_content(dom_content, max_length=6000):
     return [
